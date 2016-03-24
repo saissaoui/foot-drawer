@@ -15,25 +15,23 @@ import java.util.Map;
 /**
  * Created by s-aissaoui on 21/03/2016.
  */
-public class UserValidator extends HttpServlet {
+public class UserValidatorServlet extends HttpServlet {
     private static final Map<String, User> users = getUsers();
 
     /**
      * Creates valid users
-     *
+     * <p/>
      * This User Map could be users returned from a database
      * or a simple select with the user.name
      *
      * @return a Map of valid users
      */
-    private static Map<String,User> getUsers() {
-        Map<String,User> users = new HashMap<String,User>();
+    private static Map<String, User> getUsers() {
+        Map<String, User> users = new HashMap<String, User>();
 
-        User userOne = new User("one","one");
-        User userTwo = new User("two","TWO");
+        User userOne = new User("a-abid", "admin");
 
         users.put(userOne.getLogin(), userOne);
-        users.put(userTwo.getLogin(), userTwo);
 
         return users;
     }
@@ -49,13 +47,13 @@ public class UserValidator extends HttpServlet {
 
         User user = validateLogin(name, password);
 
-        if (user == null){
-            rd = req.getRequestDispatcher("/loginError.jsp");
-        }
-        else{
+        if (user == null) {
+            req.setAttribute("errorMessage","Login ou mot de passe invalides");
+            rd = req.getRequestDispatcher("/login.jsp");
+        } else {
             HttpSession session = req.getSession();
             session.setAttribute("user", user);
-            rd = req.getRequestDispatcher("/loginSuccess.jsp");
+            rd = req.getRequestDispatcher("/index.jsp");
         }
 
         rd.forward(req, res);
@@ -63,28 +61,28 @@ public class UserValidator extends HttpServlet {
 
     /**
      * Validate the entered data
-     *
+     * <p/>
      * If there is no valid data, the method will return null
      *
-     * @param name given at the jsp
+     * @param name     given at the jsp
      * @param password given at the jsp
      * @return a user if one was found and validated
      */
     private User validateLogin(String name, String password) {
         // All parameters must be valid
-        if (name == null || password == null){
+        if (name == null || password == null) {
             return null;
         }
 
         // Get a user by key
         User user = users.get(name);
 
-        if (user == null){
+        if (user == null) {
             return null;
         }
 
         // Check if the password is valid
-        if (!user.getPassword().equals(password.trim())){
+        if (!user.getPassword().equals(password.trim())) {
             return null;
         }
 

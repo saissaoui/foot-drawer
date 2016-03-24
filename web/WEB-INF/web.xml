@@ -6,16 +6,27 @@
 
     <servlet>
         <servlet-name>userValidator</servlet-name>
-        <servlet-class>com.drawer.servlet.UserValidator</servlet-class>
+        <servlet-class>com.drawer.servlet.UserValidatorServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>userValidator</servlet-name>
         <url-pattern>/userValidator</url-pattern>
     </servlet-mapping>
-
+    <servlet>
+        <servlet-name>logout</servlet-name>
+        <servlet-class>com.drawer.servlet.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
     <filter>
         <filter-name>UserCheckFilter</filter-name>
         <filter-class>com.drawer.filter.UserCheckFilter</filter-class>
+        <init-param>
+            <param-name>loginActionURI</param-name>
+            <param-value>/userValidator</param-value>
+        </init-param>
     </filter>
     <filter-mapping>
         <filter-name>UserCheckFilter</filter-name>
