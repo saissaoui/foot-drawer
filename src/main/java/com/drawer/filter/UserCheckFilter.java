@@ -34,7 +34,7 @@ public class UserCheckFilter implements Filter{
         HttpSession session = req.getSession();
         User user = (User) session.getAttribute("user");
 
-        if (user == null && !LOGIN_ACTION_URI.equals(req.getRequestURI())){
+        if (user == null && !(req.getContextPath()+LOGIN_ACTION_URI).equals(req.getRequestURI())){
             RequestDispatcher rd = req.getRequestDispatcher("/login.jsp");
             rd.forward(request, response);
             return;

@@ -42,7 +42,7 @@ public class UserValidatorServlet extends HttpServlet {
 
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         RequestDispatcher rd;
-        String name = req.getParameter("name");
+        String name = req.getParameter("username");
         String password = req.getParameter("password");
 
         User user = validateLogin(name, password);
@@ -53,7 +53,7 @@ public class UserValidatorServlet extends HttpServlet {
         } else {
             HttpSession session = req.getSession();
             session.setAttribute("user", user);
-            rd = req.getRequestDispatcher("/index.jsp");
+            rd = req.getRequestDispatcher("/index.html");
         }
 
         rd.forward(req, res);

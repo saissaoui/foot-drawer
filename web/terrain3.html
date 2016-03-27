@@ -72,8 +72,9 @@
     <li><a href="index.html">Terrain1</a></li>
     <li><a href="terrain2.html">Terrain2</a></li>
     <li><a href="terrain3.html">Terrain3</a></li>
-</ul>
+    <li><a href="logout">Déconnexion</a></li>
 
+</ul>
 <div id="bd-wrapper">
     <h2 style="margin-top:10px; margin-bottom:5px;"><span>Coach :</span> AbdelAziz Abid</h2>
     <div id="controls">
@@ -81,16 +82,15 @@
         <label for="opacity">Opacity: </label><input type="range" id="opacity"><label for="color"
                                                                                       style="margin-left: 10px;">Color: </label><input
             type="color" id="color" style="width: 40px;"></div>
-    <div style="position:relative;width:550px;float:left;">
+    <div style="position:relative;width:450px;float:left;">
         <div id="fps" style="display:none;">&nbsp;</div>
         <div class="canvas-container"
-             style="width: 546px; height: 350px; position: relative; -webkit-user-select: none;">
-            <canvas class="lower-canvas" width="546" height="350"
-                    style="position: absolute; width: 546px; height: 350px; left: 0px; top: 0px; -webkit-user-select: none;"></canvas>
-            <canvas id="canvas" width="546" height="350" class="upper-canvas"
-                    style="position: absolute; width: 546px; height: 350px; left: 0px; top: 0px; -webkit-user-select: none; cursor: default;"></canvas>
+             style="width: 350px; height: 280px; position: relative; -webkit-user-select: none;">
+            <canvas class="lower-canvas" width="350" height="280"
+                    style="position: absolute; width: 350px; height: 280px; left: 0px; top: 0px; -webkit-user-select: none;"></canvas>
+            <canvas id="canvas" width="350" height="280" class="upper-canvas"
+                    style="position: absolute; width: 350px; height: 280px; left: 0px; top: 0px; -webkit-user-select: none; cursor: default;"></canvas>
         </div>
-
         <div id="text-controls">
 
             <div id="complexity">Modifier le texte:<strong></strong></div>
@@ -110,20 +110,22 @@
                 <label>Bg color: <input type="color" value="" id="text-bg-color" size="10"></label>
                 <label>Line height: <input type="range" min="-2" max="10" step="0.1" title="Line height"></label></div>
         </div>
+
     </div>
 
     <div id="commands">
         <ul>
             <li style="margin-top:10px">
 
-                <input type="image" src="img/terrains/terrain1.png" class="terrain1" width="50" height="50">
-                <input type="image" src="img/terrains/terrain1_1.png" class="terrain1_1" width="50" height="50">
+                <input type="image" src="img/terrains/terrain3.png" class="terrain3" width="50" height="50">
+                <input type="image" src="img/terrains/terrain3_1.png" class="terrain3_1" width="50" height="50">
                 <input type="image" src="img/players/coach_n.png" class="coach_n" width="50" height="50">
                 <input type="image" src="img/players/coach2.png" class="coach2" width="50" height="50">
                 <input type="image" src="img/players/pos1_noir.png" class="pos1_noir" width="50" height="50">
                 <button id="add-text">Texte</button>
             </li>
         </ul>
+
         <ul>
             <li>
                 <input type="image" src="img/formes/rectangle.png" class="rect" width="25" height="25">
