@@ -1,32 +1,24 @@
-var express = require('express');
+var express = require("express");
 
 var app = express();
-const path = require('path');
+const path = require("path");
 
-app.use('/img', express.static(path.join(__dirname, 'img')))
-app.use('/lib', express.static(path.join(__dirname, 'lib')))
-app.use('/dist', express.static(path.join(__dirname, 'dist')))
+app.use("/img", express.static(path.join(__dirname, "img")));
+app.use("/lib", express.static(path.join(__dirname, "lib")));
+app.use("/dist", express.static(path.join(__dirname, "dist")));
 
-app.get('/', function (req, res) {
-
-res.sendFile(path.join(__dirname+'/index.html'));
-    
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname + "/index.html"));
 });
 
-app.get('/terrain2', function (req, res) {
-
-res.sendFile(path.join(__dirname+'/terrain2.html'));
-    
+app.get("/terrain2", function (req, res) {
+  res.sendFile(path.join(__dirname + "/terrain2.html"));
 });
 
-app.get('/terrain3', function (req, res) {
-
-res.sendFile(path.join(__dirname+'/terrain3.html'));
-    
+app.get("/terrain3", function (req, res) {
+  res.sendFile(path.join(__dirname + "/terrain3.html"));
 });
-
-app.listen(3000, function () {
-
-console.log('running');
-
+var port_number = server.listen(process.env.PORT || 3000);
+app.listen(port_number, function () {
+  console.log("running");
 });
