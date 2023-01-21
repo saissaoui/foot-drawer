@@ -18,7 +18,7 @@ app.get("/terrain2", function (req, res) {
 app.get("/terrain3", function (req, res) {
   res.sendFile(path.join(__dirname + "/terrain3.html"));
 });
-let port = process.env.PORT || 8080;
+let port = process.env.PORT || 3000;
 app.listen(port, function () {
   console.log("running");
 });
