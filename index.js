@@ -62,13 +62,10 @@ app.listen(port, function () {
 
 app.post("/login", (req, res) => {
   const savedPassword = users.get(req.body.login);
-  console.log('savedPassword: ' + savedPassword)
-  console.log('req.body.password: ' + req.body.password)
   if (savedPassword) {
     if (req.body.password == savedPassword) {
       session = req.session;
       session.userid = req.body.login;
-      console.log(req.session);
       res.sendFile(path.join(__dirname + "/terrain1.html"));
     } else {
       res.sendFile(__dirname + "/login.html");
